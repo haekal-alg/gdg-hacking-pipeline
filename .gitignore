@@ -1,0 +1,6 @@
+# Regenerated every run, one timestamped file per run - not meant to pile up in git history.
+artifacts/nmap_output_*.txt
+artifacts/gobuster_output_*.txt
+artifacts/exploit_results_*.txt
+
+__pycache__/
