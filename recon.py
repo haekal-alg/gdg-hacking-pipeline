@@ -4,7 +4,6 @@ import subprocess
 from datetime import datetime
 
 TARGET = "vulnbank.org"
-UA = "gdgoc-workshop-recon/1.0"  # Cloudflare 403s requests with no/default User-Agent
 
 
 def scan(cmd, out_file):
@@ -20,4 +19,4 @@ if __name__ == "__main__":
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")  # each run gets its own file, nothing gets overwritten
     scan(["nmap", "-sV", TARGET], f"artifacts/nmap_output_{stamp}.txt")  # no -p: let nmap find open ports itself
     print()
-    scan(["gobuster", "dir", "-u", f"https://{TARGET}", "-w", "wordlist.txt", "-t", "20", "--to", "8s", "-a", UA, "-q"], f"artifacts/gobuster_output_{stamp}.txt")
+    scan(["gobuster", "dir", "-u", f"https://{TARGET}", "-w", "wordlist.txt"], f"artifacts/gobuster_output_{stamp}.txt")
